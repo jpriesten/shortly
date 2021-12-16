@@ -1,0 +1,57 @@
+.bottom-design {
+  background-color: hsl(257, 27%, 26%);
+  background-image: url(../../../assets/images/bg-boost-desktop.svg);
+  background-size: cover;
+  color: white;
+  font-weight: 700;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.illustration {
+  width: 130%;
+}
+
+.main-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+}
+
+.main-subtitle {
+  font-size: 1.7rem;
+  color: hsl(257, 7%, 63%);
+}
+
+@media (max-width: 375px) {
+  .bottom-design {
+    background-image: url(../../../assets/images/bg-boost-mobile.svg);
+  }
+
+  .main-title {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .main-title {
+    font-size: 3.5rem;
+  }
+
+  .main-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .illustration-order {
+    order: -1;
+    padding-bottom: 30px;
+  }
+
+  .illustration {
+    width: -webkit-fill-available;
+  }
+}
