@@ -1,0 +1,22 @@
+a:hover {
+  color: hsl(260, 8%, 14%) !important;
+}
+
+.link-decoration {
+  text-decoration: none;
+  color: hsl(257, 7%, 63%) !important;
+}
+
+/* #mobileToggleContent {
+  position: absolute;
+  z-index: 1;
+} */
+
+.mobile-content-container {
+  background-color: hsl(257, 27%, 26%);
+}
+
+.mobile-link-decoration {
+  text-decoration: none;
+  color: white;
+}
