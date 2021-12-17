@@ -189,7 +189,7 @@
   }
 
   .card-line-design {
-    top: 10% !important;
+    top: 8% !important;
     left: 45.9%;
   }
 
@@ -200,7 +200,7 @@
   }
 }
 
-@media (min-width: 374.89px) and (max-width: 767px) {
+@media (min-width: 375.89px) and (max-width: 767px) {
   .main-title {
     font-size: 3.5rem;
   }
