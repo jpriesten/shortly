@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ShortCodeService } from 'src/app/services/short-code.service';
 
 @Component({
@@ -21,6 +22,7 @@ export class LandingPageComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private toastr: ToastrService,
     private shortCodeService: ShortCodeService
   ) {}
 
@@ -53,10 +55,20 @@ export class LandingPageComponent implements OnInit {
       let shortened: any = await this.shortCodeService.shortenUrl(url);
       this.urlData.push(shortened);
       localStorage.setItem('urls', JSON.stringify(this.urlData));
+      this.showSuccess('Link shortened!');
       console.log('Shortened url: ', shortened);
-    } catch (error) {
+    } catch (error: any) {
+      this.showError(error.error ?? error);
       console.error('Failed shortening url: ', error);
     }
+  }
+
+  showSuccess(message: string) {
+    this.toastr.success(message);
+  }
+
+  showError(message: any) {
+    this.toastr.error(message);
   }
 
   copyShotCode(shortUrl: string, index: number) {

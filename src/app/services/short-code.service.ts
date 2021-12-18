@@ -35,7 +35,8 @@ export class ShortCodeService {
         },
         error: (err) => {
           console.log('Error: ', err);
-          reject(err);
+          let error = err.status != 0 ? err.error : err.message;
+          reject(error);
         },
         complete: () => {
           console.log('Comepleted');
