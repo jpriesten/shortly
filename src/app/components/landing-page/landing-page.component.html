@@ -17,11 +17,15 @@
     </div>
   </div>
   <div class="form-container">
-    <form class="was-validated row justify-content-center form-design p-3 pt-4 pb-4 p-md-5">
+    <form [formGroup]="shortlyFormGroup" (submit)="formSubmit()"
+      class="row justify-content-center form-design p-3 pt-4 pb-4 p-md-5">
       <div class="col-12 col-md-8 align-self-center main">
-        <input type="text" class="form-control form-control-lg" placeholder="Shorten a link here..." required>
-        <div class="invalid-feedback fst-italic">
-          Please add a link
+        <input type="text" class="form-control form-control-lg" placeholder="Shorten a link here..."
+          formControlName="url"
+          [ngClass]="{'form-control-invalid': formSubmitted && shortlyFormGroup.controls['url'].invalid}">
+        <div style="display: none"
+          [ngClass]="{'display-block': formSubmitted && shortlyFormGroup.controls['url'].invalid, 'invalid-feedback': formSubmitted && shortlyFormGroup.controls['url'].invalid}">
+          <span class="fst-italic">Please add a link</span>
         </div>
       </div>
       <div class="col-12 col-md-2 display-cover">
@@ -33,17 +37,23 @@
 
 <div class="middle-design">
   <div class="container p-5">
-    <div class="row p-3 justify-content-center align-items-center rounded-3 shortened-link-container">
+    <div *ngFor="let url of urlData; let i=index"
+      class="row mb-3 p-3 justify-content-center align-items-center rounded-3 shortened-link-container">
       <div class="col">
-        <span class="float-start pb-3 pb-md-0">
-          Shortened links here left Shortened links here left
-        </span>
-        <span class="float-start float-md-end pb-1 pb-md-0 shortened-link">
-          Shortened links here right
-        </span>
+        <div class="row">
+          <div class="col pb-3 pb-md-0">
+            {{url.original_link}}
+          </div>
+          <div
+            class="col d-flex justify-content-start justify-content-md-end align-items-center pb-1 pb-md-0 shortened-link">
+            {{url.full_short_link}}
+          </div>
+        </div>
       </div>
       <div class="col-2 display-cover">
-        <button class="btn btn-custom">Copy</button>
+        <button class="btn btn-custom" [ngClass]="{'btn-custom-copied': currentUrlIndex == i && shortUrlCopied}"
+          (click)="copyShotCode(url.full_short_link, i)">{{currentUrlIndex == i && shortUrlCopied? 'Copied!':
+          'Copy'}}</button>
       </div>
     </div>
     <div class="row pt-5 text-center">

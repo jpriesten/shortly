@@ -26,18 +26,19 @@
   border-radius: 0.9rem;
 }
 
-.form-control:invalid {
+.form-control-invalid {
   border-color: hsl(0, 87%, 67%);
   background-image: none;
 }
 
-.form-control:invalid::placeholder {
+.form-control-invalid::placeholder {
   color: hsl(0, 87%, 67%);
 }
 
 .invalid-feedback {
   color: hsl(0, 87%, 67%);
   text-align: start;
+  font-size: 1rem;
 }
 
 .display-cover {
