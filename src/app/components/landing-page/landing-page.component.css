@@ -99,6 +99,10 @@
   border: 5px solid hsl(180, 66%, 49%);
 }
 
+.image-size {
+  width: 100%;
+}
+
 .bottom-design {
   background-color: hsl(257, 27%, 26%);
   background-image: url(../../../assets/images/bg-boost-desktop.svg);
@@ -111,13 +115,18 @@
 
 @media (max-width: 332.89px) {
   .card-image-design {
-    top: -10% !important;
-    left: 27% !important;
+    padding: 15px;
+    top: -8% !important;
+    left: 32% !important;
   }
 
   .card-line-design {
     top: 30% !important;
     left: 42% !important ;
+  }
+
+  .image-size {
+    width: 90%;
   }
 }
 
@@ -140,17 +149,21 @@
   }
 
   .card-line-design {
-    left: 45%;
+    left: 45% !important;
   }
 
   .card-line-style {
-    height: 1000px !important;
+    height: 1200px !important;
   }
 }
 
 @media (min-width: 375.89px) and (max-width: 550px) {
   .card-line-design {
     left: 46% !important ;
+  }
+
+  .card-image-design {
+    left: 38% !important;
   }
 }
 
@@ -214,7 +227,7 @@
 
   .card-image-design {
     top: -15% !important;
-    left: 38% !important;
+    left: 40%;
   }
 }
 
