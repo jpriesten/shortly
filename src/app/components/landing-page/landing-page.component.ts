@@ -14,6 +14,8 @@ import { ShortCodeService } from 'src/app/services/short-code.service';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
+  public loadingData = false;
+
   public formSubmitted = false;
   public shortUrlCopied = false;
   public currentUrlIndex = 0;
@@ -51,13 +53,16 @@ export class LandingPageComponent implements OnInit {
 
   async shortenUrl(url: string) {
     try {
+      this.loadingData = true;
       this.urlData = this.shortenedUrls;
       let shortened: any = await this.shortCodeService.shortenUrl(url);
       this.urlData.push(shortened);
       localStorage.setItem('urls', JSON.stringify(this.urlData));
       this.showSuccess('Link shortened!');
       console.log('Shortened url: ', shortened);
+      this.loadingData = false;
     } catch (error: any) {
+      this.loadingData = false;
       this.showError(error.error ?? error);
       console.error('Failed shortening url: ', error);
     }

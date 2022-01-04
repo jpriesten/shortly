@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,12 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxLoadingModule.forRoot({
+      primaryColour: '#ffffff',
+      secondaryColour: '#3b3054',
+      backdropBorderRadius: '3px',
+      fullScreenBackdrop: true,
+    }),
     ToastrModule.forRoot(),
   ],
   providers: [],
